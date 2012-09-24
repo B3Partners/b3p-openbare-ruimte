@@ -2,13 +2,18 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package nl.b3p.viewer.openbareruimte.entitiies;
+package nl.b3p.viewer.openbareruimte.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
  * @author Roy Braam
  */
+@Entity
 public class Maatregel {
+    @Id
     private String id;
     private String omschrijving;
 

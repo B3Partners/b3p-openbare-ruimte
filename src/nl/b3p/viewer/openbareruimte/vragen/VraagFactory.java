@@ -7,7 +7,7 @@ package nl.b3p.viewer.openbareruimte.vragen;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import nl.b3p.viewer.openbareruimte.entitiies.RawCrow;
+import nl.b3p.viewer.openbareruimte.entities.RawCrow;
 
 /**
  *
