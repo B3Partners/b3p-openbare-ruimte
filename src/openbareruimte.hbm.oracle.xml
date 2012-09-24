@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-mappings
+    xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_0.xsd"
+    version="2.0">
+
+    <entity class="nl.b3p.viewer.openbareruimte.entities.Maatregel">
+    </entity>
+    <entity class="nl.b3p.viewer.openbareruimte.entities.MaatregelEigenschap">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="maatregel_eigenschap_id_seq"/>
+                <sequence-generator name="maatregel_eigenschap_id_seq" sequence-name="maatregel_eigenschap_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    <entity class="nl.b3p.viewer.openbareruimte.entities.MaatregelGepland">    
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="maatregel_gepland_id_seq"/>
+                <sequence-generator name="maatregel_gepland_id_seq" sequence-name="maatregel_gepland_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    <entity class="nl.b3p.viewer.openbareruimte.entities.RawCrow">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="raw_crow_id_seq"/>
+                <sequence-generator name="raw_crow_id_seq" sequence-name="raw_crow_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+    <entity class="nl.b3p.viewer.openbareruimte.entities.VlakMaatregel">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="vlak_maatregel_id_seq"/>
+                <sequence-generator name="vlak_maatregel_id_seq" sequence-name="vlak_maatregel_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
+</entity-mappings>
