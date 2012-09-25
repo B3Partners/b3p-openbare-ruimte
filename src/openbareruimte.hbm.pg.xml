@@ -22,7 +22,7 @@
             </id>
         </attributes>    
     </entity>
-    <entity class="nl.b3p.viewer.openbareruimte.entities.RawCrow">
+    <entity class="nl.b3p.viewer.openbareruimte.entities.RawCrow" name="maatregel_acties">
         <attributes>
             <id name="id">
                 <generated-value strategy="IDENTITY"/>

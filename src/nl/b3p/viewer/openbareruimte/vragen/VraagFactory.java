@@ -16,7 +16,7 @@ import nl.b3p.viewer.openbareruimte.entities.RawCrow;
 public class VraagFactory {
     public VraagFactory(){}
     
-    public List<Vraag> createVragen(List<RawCrow> raw){
+    public static List<Vraag> createVragen(List<RawCrow> raw){
         Collections.sort(raw);
         return createVragenSorted(raw);
     }
@@ -26,7 +26,7 @@ public class VraagFactory {
      * @param sortedRaw 
      * @return 
      */
-    public List<Vraag> createVragenSorted(List<RawCrow> sortedRaw){
+    public static List<Vraag> createVragenSorted(List<RawCrow> sortedRaw){
         List<Vraag> vragen = new ArrayList<Vraag>();
         if (sortedRaw == null || sortedRaw.size()==0){
             return vragen;
@@ -46,6 +46,7 @@ public class VraagFactory {
                 laatsteOptie=new VraagOptie(raw.getDeficode());
             }
             laatsteOptie.addTekst(raw.getTekst());
+            curCode=raw.getDeficode();
         }
         return vragen;
     }
