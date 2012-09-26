@@ -12,7 +12,7 @@ import java.util.List;
  * @author Roy Braam
  */
 public class Vraag {
-    public List<VraagOptie> vraagOpties;
+    private List<VraagOptie> vraagOpties;
 
     void add(VraagOptie laatsteOptie) {
         if (this.vraagOpties==null){
@@ -20,4 +20,16 @@ public class Vraag {
         }
         this.vraagOpties.add(laatsteOptie);
     }
+
+    //<editor-fold defaultstate="collapsed" desc="getters setters">
+
+    public List<VraagOptie> getVraagOpties() {
+        return vraagOpties;
+    }
+    
+    public void setVraagOpties(List<VraagOptie> vraagOpties) {
+        this.vraagOpties = vraagOpties;
+    }
+
+    //</editor-fold>
 }

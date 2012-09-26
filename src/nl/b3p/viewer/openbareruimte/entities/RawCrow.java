@@ -61,6 +61,9 @@ public class RawCrow implements Comparable {
     }
     
     public void setDeficode(String deficode) {
+        if (deficode!=null){
+            deficode=deficode.trim();
+        }
         this.deficode = deficode;
     }
     
@@ -77,6 +80,9 @@ public class RawCrow implements Comparable {
     }
     
     public void setEenheid(String eenheid) {
+        if (eenheid !=null){
+            eenheid=eenheid.trim();
+        }
         this.eenheid = eenheid;
     }
     
