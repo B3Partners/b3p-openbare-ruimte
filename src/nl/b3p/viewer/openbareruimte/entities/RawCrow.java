@@ -4,8 +4,10 @@
  */
 package nl.b3p.viewer.openbareruimte.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 /**
  *
@@ -19,6 +21,8 @@ public class RawCrow implements Comparable {
     private Integer swc;
     private Integer volgnr;
     private String deficode;
+    @Lob
+    @org.hibernate.annotations.Type(type="org.hibernate.type.StringClobType")
     private String tekst;
     private String eenheid;
     private String vrij;
