@@ -57,13 +57,14 @@ public class RawCrow implements Comparable {
     }
     
     public String getDeficode() {
-        return deficode;
+        if (deficode!=null){
+            return deficode.trim();
+        }else{
+            return deficode;
+        }
     }
     
-    public void setDeficode(String deficode) {
-        if (deficode!=null){
-            deficode=deficode.trim();
-        }
+    public void setDeficode(String deficode) {        
         this.deficode = deficode;
     }
     
@@ -76,7 +77,11 @@ public class RawCrow implements Comparable {
     }
     
     public String getEenheid() {
-        return eenheid;
+        if (eenheid!=null){
+            return eenheid.trim();
+        }else{
+            return eenheid;
+        }
     }
     
     public void setEenheid(String eenheid) {
@@ -125,6 +130,14 @@ public class RawCrow implements Comparable {
     public void setRelease(String release) {
         this.release = release;
     }
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     //</editor-fold>
 
     @Override
@@ -144,13 +157,5 @@ public class RawCrow implements Comparable {
             }
         }
         return comp;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }

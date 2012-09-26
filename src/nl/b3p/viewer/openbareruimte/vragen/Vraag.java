@@ -13,7 +13,12 @@ import java.util.List;
  */
 public class Vraag {
     private List<VraagOptie> vraagOpties;
+    private Integer id;
 
+    Vraag(Integer id) {
+        this.id=id;
+    }
+    
     void add(VraagOptie laatsteOptie) {
         if (this.vraagOpties==null){
             this.vraagOpties = new ArrayList<VraagOptie>();
@@ -32,4 +37,12 @@ public class Vraag {
     }
 
     //</editor-fold>
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

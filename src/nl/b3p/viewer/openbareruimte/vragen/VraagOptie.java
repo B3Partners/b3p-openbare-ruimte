@@ -12,9 +12,11 @@ public class VraagOptie {
     private String deficode;
     private String tekst;
     private String eenheid;
+    private String omschrijving;
 
-    VraagOptie(String deficode) {
+    VraagOptie(String deficode,String tekst) {
         this.deficode=deficode;
+        this.tekst= tekst;
     }
 
     //<editor-fold defaultstate="collapsed" desc="comment">
@@ -49,5 +51,21 @@ public class VraagOptie {
         }else{
             this.tekst+=" "+tekst;
         }
+    }
+    
+    void addOmschrijving(String omschrijving) {
+        if (this.omschrijving==null){
+            this.omschrijving=omschrijving;
+        }else{
+            this.omschrijving+=" "+omschrijving;
+        }
+    }
+
+    public String getOmschrijving() {
+        return omschrijving;
+    }
+
+    public void setOmschrijving(String omschrijving) {
+        this.omschrijving = omschrijving;
     }
 }

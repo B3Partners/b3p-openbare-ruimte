@@ -42,26 +42,30 @@ public class Factory {
                 continue;
             }else if (raw.getDeficode().equals("0000")){
                 f.addTekst(raw.getTekst());                
-                if (raw.getEenheid()!=null){
+                if (raw.getEenheid()!=null && raw.getEenheid().length()>0){
                     f.setEenheid(raw.getEenheid());
                 }
             }else{
                 if (curCode==null){
                     curCode =raw.getDeficode();
-                    laatsteVraag = new Vraag();
-                    laatsteOptie = new VraagOptie(curCode);
+                    laatsteVraag = new Vraag(new Integer(curCode.charAt(0)));
+                    laatsteOptie = new VraagOptie(curCode,raw.getTekst());
                 }
                 //nieuwe optie
                 if (!curCode.equalsIgnoreCase(raw.getDeficode())){
                     laatsteVraag.add(laatsteOptie);
-                    laatsteOptie=new VraagOptie(raw.getDeficode());
+                    laatsteOptie=new VraagOptie(raw.getDeficode(),raw.getTekst());
+                }else{
+                    laatsteOptie.addTekst(raw.getTekst());
                 }
                 //nieuwe vraag
                 if (curCode.charAt(0) != raw.getDeficode().charAt(0)){
                     vragen.add(laatsteVraag);
-                    laatsteVraag=  new Vraag();
+                    laatsteVraag=  new Vraag(new Integer(raw.getDeficode().charAt(0)));
                 }
-                laatsteOptie.addTekst(raw.getTekst());
+                if (raw.getEenheid()!=null && raw.getEenheid().length()>0){
+                    laatsteOptie.setEenheid(raw.getEenheid());
+                }
                 curCode=raw.getDeficode();
             }
         }
