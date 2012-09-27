@@ -48,7 +48,7 @@ public class Factory {
             }else{
                 if (curCode==null){
                     curCode =raw.getDeficode();
-                    laatsteVraag = new Vraag(new Integer(curCode.charAt(0)));
+                    laatsteVraag = new Vraag(new Integer(""+curCode.charAt(0)));
                     laatsteOptie = new VraagOptie(curCode,raw.getTekst());
                 }
                 //nieuwe optie
@@ -61,7 +61,7 @@ public class Factory {
                 //nieuwe vraag
                 if (curCode.charAt(0) != raw.getDeficode().charAt(0)){
                     vragen.add(laatsteVraag);
-                    laatsteVraag=  new Vraag(new Integer(raw.getDeficode().charAt(0)));
+                    laatsteVraag=  new Vraag(new Integer(""+raw.getDeficode().charAt(0)));
                 }
                 if (raw.getEenheid()!=null && raw.getEenheid().length()>0){
                     laatsteOptie.setEenheid(raw.getEenheid());
