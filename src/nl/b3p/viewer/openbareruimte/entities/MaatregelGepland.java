@@ -26,6 +26,8 @@ public class MaatregelGepland {
     
     private Integer hoeveelheid;
     
+    private String objectType;
+    
     @OneToMany(mappedBy="maatregel", fetch= FetchType.LAZY, cascade={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
     private List<MaatregelEigenschap> eigenschappen;
 
@@ -35,6 +37,7 @@ public class MaatregelGepland {
         }
         eigenschappen.add(me);
     }
+    
     //<editor-fold defaultstate="collapsed" desc="Getters and Setters">
     public Long getId() {
         return id;
@@ -66,6 +69,14 @@ public class MaatregelGepland {
 
     public void setEigenschappen(List<MaatregelEigenschap> eigenschappen) {
         this.eigenschappen = eigenschappen;
+    }
+
+    public String getObjectType() {
+        return objectType;
+    }
+
+    public void setObjectType(String objectType) {
+        this.objectType = objectType;
     }
     //</editor-fold>
     

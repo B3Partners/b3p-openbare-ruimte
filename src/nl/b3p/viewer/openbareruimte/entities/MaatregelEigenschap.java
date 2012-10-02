@@ -4,6 +4,7 @@
  */
 package nl.b3p.viewer.openbareruimte.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -17,6 +18,7 @@ public class MaatregelEigenschap {
     @Id
     private Long id;
     @ManyToOne
+    @JsonIgnore
     private MaatregelGepland maatregel;
     private String deficode;
     private Integer hoeveelheid;
