@@ -28,6 +28,10 @@ public class MaatregelGepland {
     
     private String objectType;
     
+    private Integer bronId;
+    
+    private String featureId;
+    
     @OneToMany(mappedBy="maatregel", fetch= FetchType.LAZY, cascade={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
     private List<MaatregelEigenschap> eigenschappen;
 
@@ -77,6 +81,22 @@ public class MaatregelGepland {
 
     public void setObjectType(String objectType) {
         this.objectType = objectType;
+    }
+
+    public Integer getBronId() {
+        return bronId;
+    }
+
+    public void setBronId(Integer bronId) {
+        this.bronId = bronId;
+    }
+
+    public String getFeatureId() {
+        return featureId;
+    }
+
+    public void setFeatureId(String featureId) {
+        this.featureId = featureId;
     }
     //</editor-fold>
     
