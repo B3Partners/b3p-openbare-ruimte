@@ -32,7 +32,7 @@ public class MaatregelGepland {
     
     private String featureId;
     
-    @OneToMany(mappedBy="maatregel", fetch= FetchType.LAZY, cascade={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
+    @OneToMany(mappedBy="maatregel", fetch= FetchType.LAZY, cascade={CascadeType.ALL})
     private List<MaatregelEigenschap> eigenschappen;
 
     public void addEigenschap(MaatregelEigenschap me){
