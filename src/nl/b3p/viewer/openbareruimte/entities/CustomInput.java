@@ -4,8 +4,10 @@
  */
 package nl.b3p.viewer.openbareruimte.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -21,7 +23,9 @@ public class CustomInput {
     private Integer index;
     private String value;
     
+    @JsonIgnore
     @ManyToOne
+    @JoinColumn(name="maatregel_eigenschap", insertable=false, updatable=false)
     private MaatregelEigenschap maatregelEigenschap;
 
     public CustomInput() {

@@ -10,6 +10,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -21,13 +22,17 @@ import javax.persistence.OneToMany;
 public class MaatregelEigenschap {
     @Id
     private Long id;
+    
     @ManyToOne
-    @JsonIgnore
+    @JsonIgnore    
+    @JoinColumn (name="maatregel")    
     private MaatregelGepland maatregel;
+    
     private String deficode;
     private Integer hoeveelheid;
     
-    @OneToMany(mappedBy="maatregelEigenschap", fetch= FetchType.LAZY, cascade={CascadeType.ALL})
+    @OneToMany(fetch= FetchType.LAZY, cascade={CascadeType.ALL})
+    @JoinColumn (name="maatregel_eigenschap")
     private List<CustomInput> customInputs;
     
     //<editor-fold defaultstate="collapsed" desc="Getters and Setters">
