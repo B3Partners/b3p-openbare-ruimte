@@ -4,6 +4,9 @@
  */
 package nl.b3p.viewer.openbareruimte.vragen;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Roy Braam
@@ -13,6 +16,8 @@ public class VraagOptie {
     private String tekst;
     private String eenheid;
     private String omschrijving;
+    
+    private List<CustomInput> customInputs;
 
     VraagOptie(String deficode,String tekst) {
         this.deficode=deficode;
@@ -43,6 +48,22 @@ public class VraagOptie {
     public void setEenheid(String eenheid) {
         this.eenheid = eenheid;
     }
+    
+    public String getOmschrijving() {
+        return omschrijving;
+    }
+
+    public void setOmschrijving(String omschrijving) {
+        this.omschrijving = omschrijving;
+    }
+
+    public List<CustomInput> getCustomInputs() {
+        return customInputs;
+    }
+
+    public void setCustomInputs(List<CustomInput> customInputs) {
+        this.customInputs = customInputs;
+    }
     //</editor-fold>
 
     void addTekst(String tekst) {
@@ -60,12 +81,11 @@ public class VraagOptie {
             this.omschrijving+=" "+omschrijving;
         }
     }
-
-    public String getOmschrijving() {
-        return omschrijving;
-    }
-
-    public void setOmschrijving(String omschrijving) {
-        this.omschrijving = omschrijving;
+    
+    void addCustomInput(CustomInput customInput){
+        if (this.customInputs==null){
+            this.customInputs = new ArrayList<CustomInput>();
+        }
+        this.customInputs.add(customInput);
     }
 }
