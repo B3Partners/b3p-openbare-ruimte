@@ -40,4 +40,12 @@
             </id>
         </attributes>
     </entity>
+    <entity class="nl.b3p.viewer.openbareruimte.entities.CustomInput">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="SEQUENCE" generator="custom_input_id_seq"/>
+                <sequence-generator name="custom_input_id_seq" sequence-name="custom_input_id_seq"/>
+            </id>
+        </attributes>
+    </entity>
 </entity-mappings>
