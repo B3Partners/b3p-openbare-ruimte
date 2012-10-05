@@ -7,12 +7,14 @@ package nl.b3p.viewer.openbareruimte.entities;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author Roy Braam
  */
 @Entity
+@Table(name="maatregel_custom_input")
 public class CustomInput {
     @Id
     private Long id;
