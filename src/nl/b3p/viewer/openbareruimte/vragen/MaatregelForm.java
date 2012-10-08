@@ -65,5 +65,13 @@ public class MaatregelForm {
         }
         this.customInputs.add(ci);
     }
+
+    void addCustomInputs(List<CustomInput> cis) {
+        if (this.customInputs==null){
+            this.setCustomInputs(cis);
+        }else{
+            this.customInputs.addAll(cis);
+        }
+    }
     
 }

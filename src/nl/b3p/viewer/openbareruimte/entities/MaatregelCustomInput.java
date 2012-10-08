@@ -25,13 +25,13 @@ public class MaatregelCustomInput extends CustomInput{
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name="maatregel", insertable=false, updatable=false)
-    private Maatregel maatregel;
+    private MaatregelGepland maatregel;
     
-    public Maatregel getMaatregel() {
+    public MaatregelGepland getMaatregel() {
         return maatregel;
     }
 
-    public void setMaatregel(Maatregel maatregel) {
+    public void setMaatregel(MaatregelGepland maatregel) {
         this.maatregel = maatregel;
     }
 

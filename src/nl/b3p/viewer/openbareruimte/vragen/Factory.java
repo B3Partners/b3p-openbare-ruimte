@@ -14,6 +14,7 @@ import nl.b3p.viewer.openbareruimte.entities.RawCrow;
  * @author Roy Braam
  */
 public class Factory {
+
     public Factory(){}
     
     public static MaatregelForm createVragen(List<RawCrow> raw){
@@ -44,20 +45,13 @@ public class Factory {
                 f.addTekst(raw.getTekst());                
                 if (raw.getEenheid()!=null && raw.getEenheid().length()>0){
                     f.setEenheid(raw.getEenheid());
-                }                
+                }    
+                
                 if (raw.getVrij()!=null && !raw.getVrij().equalsIgnoreCase("0000")){
                     Integer previousTextLength = f.getTekst().length() - raw.getTekst().length();
-                    String vrij = raw.getVrij();
-                    while (vrij.length()>0){
-                        Integer startIndex = new Integer(vrij.substring(0, 2));
-                        Integer endIndex = new Integer(vrij.substring(2, 4));
-                        //start with 0 not with 1
-                        startIndex--;                        
-                        //if there is a previous text, add the length of that text for the correct length
-                        CustomInput ci = new CustomInput(previousTextLength+startIndex,endIndex-startIndex);
-                        vrij = vrij.substring(4);
-                        f.addCustomInput(ci);
-                    }
+                    List <CustomInput> cis = createCustomInputs(raw.getVrij(),previousTextLength); 
+                    f.addCustomInputs(cis);
+                    
                 }
             }else{
                 if (curCode==null){
@@ -77,17 +71,8 @@ public class Factory {
                 //create custom input fields                
                 if (raw.getVrij()!=null && !raw.getVrij().equalsIgnoreCase("0000")){
                     Integer previousTextLength = laatsteOptie.getTekst().length() - raw.getTekst().length();
-                    String vrij = raw.getVrij();
-                    while (vrij.length()>0){
-                        Integer startIndex = new Integer(vrij.substring(0, 2));
-                        Integer endIndex = new Integer(vrij.substring(2, 4));
-                        //start with 0 not with 1
-                        startIndex--;                        
-                        //if there is a previous text, add the length of that text for the correct length
-                        CustomInput ci = new CustomInput(previousTextLength+startIndex,endIndex-startIndex);
-                        vrij = vrij.substring(4);
-                        laatsteOptie.addCustomInput(ci);
-                    }
+                    List<CustomInput> cis = createCustomInputs(raw.getVrij(), previousTextLength);
+                    laatsteOptie.addCustomInputs(cis);                    
                 }
                 
                 //nieuwe vraag
@@ -103,5 +88,22 @@ public class Factory {
         }
         f.setVragen(vragen);
         return f;
+    }
+    /**
+     * @param text 
+     */
+    private static List<CustomInput> createCustomInputs(String text, Integer textStartIndex) {
+        List <CustomInput> cis = new ArrayList<CustomInput>();
+        while (text.length()>0){
+            Integer startIndex = new Integer(text.substring(0, 2));
+            Integer endIndex = new Integer(text.substring(2, 4));
+            //start with 0 not with 1
+            startIndex--;                        
+            //if there is a previous text, add the length of that text for the correct length
+            CustomInput ci = new CustomInput(textStartIndex+startIndex,endIndex-startIndex);
+            text = text.substring(4);
+            cis.add(ci);
+        }
+        return cis;
     }
 }

@@ -37,11 +37,22 @@ public class MaatregelGepland {
     @JoinColumn (name="maatregel")    
     private List<MaatregelEigenschap> eigenschappen;
 
+    @OneToMany(fetch= FetchType.LAZY, cascade={CascadeType.ALL})
+    @JoinColumn (name="maatregel")
+    private List<MaatregelCustomInput> customInputs;
+    
     public void addEigenschap(MaatregelEigenschap me){
         if (eigenschappen==null){
             eigenschappen = new ArrayList<MaatregelEigenschap>();
         }
         eigenschappen.add(me);
+    }
+        
+    public void addCustomInput(MaatregelCustomInput mci) {
+        if (this.customInputs==null){
+            this.customInputs = new ArrayList<MaatregelCustomInput>();
+        }
+        this.customInputs.add(mci);
     }
     
     //<editor-fold defaultstate="collapsed" desc="Getters and Setters">
@@ -100,6 +111,16 @@ public class MaatregelGepland {
     public void setFeatureId(String featureId) {
         this.featureId = featureId;
     }
+    
+    public List<MaatregelCustomInput> getCustomInputs() {
+        return customInputs;
+    }
+
+    public void setCustomInputs(List<MaatregelCustomInput> customInputs) {
+        this.customInputs = customInputs;
+    }
     //</editor-fold>
+
+
     
 }

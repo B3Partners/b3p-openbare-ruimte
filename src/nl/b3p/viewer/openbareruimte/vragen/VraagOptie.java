@@ -88,4 +88,12 @@ public class VraagOptie {
         }
         this.customInputs.add(customInput);
     }
+
+    void addCustomInputs(List<CustomInput> cis) {
+        if (this.customInputs==null){
+            this.customInputs = cis;
+        }else{
+            this.customInputs.addAll(cis);
+        }
+    }
 }

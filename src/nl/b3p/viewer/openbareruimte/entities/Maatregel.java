@@ -20,11 +20,7 @@ import javax.persistence.OneToMany;
 public class Maatregel {
     @Id
     private String id;
-    private String omschrijving;
-    
-    @OneToMany(fetch= FetchType.LAZY, cascade={CascadeType.ALL})
-    @JoinColumn (name="maatregel")
-    private List<MaatregelCustomInput> customInputs;
+    private String omschrijving;    
 
     //<editor-fold defaultstate="collapsed" desc="comment">
     public String getId() {
@@ -41,14 +37,6 @@ public class Maatregel {
     
     public void setOmschrijving(String omschrijving) {
         this.omschrijving = omschrijving;
-    }
-
-    public List<MaatregelCustomInput> getCustomInputs() {
-        return customInputs;
-    }
-
-    public void setCustomInputs(List<MaatregelCustomInput> customInputs) {
-        this.customInputs = customInputs;
     }
     //</editor-fold>
 }
