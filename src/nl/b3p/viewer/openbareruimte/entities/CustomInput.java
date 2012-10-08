@@ -4,30 +4,18 @@
  */
 package nl.b3p.viewer.openbareruimte.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.MappedSuperclass;
 
 /**
  *
  * @author Roy Braam
  */
-@Entity
-@Table(name="maatregel_custom_input")
-public class CustomInput {
-    @Id
-    private Long id;
+@MappedSuperclass
+public class CustomInput {    
     private Integer index;
     private String value;
     
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name="maatregel_eigenschap", insertable=false, updatable=false)
-    private MaatregelEigenschap maatregelEigenschap;
-
     public CustomInput() {
     }
 
@@ -49,21 +37,5 @@ public class CustomInput {
 
     public void setValue(String value) {
         this.value = value;
-    }
-
-    public MaatregelEigenschap getMaatregelEigenschap() {
-        return maatregelEigenschap;
-    }
-
-    public void setMaatregelEigenschap(MaatregelEigenschap maatregelEigenschap) {
-        this.maatregelEigenschap = maatregelEigenschap;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }

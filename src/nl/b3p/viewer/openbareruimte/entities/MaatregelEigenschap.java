@@ -33,7 +33,7 @@ public class MaatregelEigenschap {
     
     @OneToMany(fetch= FetchType.LAZY, cascade={CascadeType.ALL})
     @JoinColumn (name="maatregel_eigenschap")
-    private List<CustomInput> customInputs;
+    private List<MaatregelEigenschapCustomInput> customInputs;
     
     //<editor-fold defaultstate="collapsed" desc="Getters and Setters">
     public MaatregelGepland getMaatregel() {
@@ -67,11 +67,11 @@ public class MaatregelEigenschap {
         this.id = id;
     }
 
-    public List<CustomInput> getCustomInputs() {
+    public List<MaatregelEigenschapCustomInput> getCustomInputs() {
         return customInputs;
     }
 
-    public void setCustomInputs(List<CustomInput> customInputs) {
+    public void setCustomInputs(List<MaatregelEigenschapCustomInput> customInputs) {
         this.customInputs = customInputs;
     }
     //</editor-fold>

@@ -4,6 +4,7 @@
  */
 package nl.b3p.viewer.openbareruimte.vragen;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,6 +15,7 @@ public class MaatregelForm {
     private List<Vraag> vragen;
     private String tekst;
     private String eenheid;
+    private List<CustomInput> customInputs;
 
     //<editor-fold defaultstate="collapsed" desc="getters and setters">
     public List<Vraag> getVragen() {
@@ -39,6 +41,14 @@ public class MaatregelForm {
     public void setEenheid(String eenheid) {
         this.eenheid = eenheid;
     }
+    
+    public List<CustomInput> getCustomInputs() {
+        return customInputs;
+    }
+
+    public void setCustomInputs(List<CustomInput> customInputs) {
+        this.customInputs = customInputs;
+    }
     //</editor-fold>
 
     void addTekst(String tekst) {
@@ -48,4 +58,12 @@ public class MaatregelForm {
             this.tekst+=" "+tekst;
         }
     }
+
+    public void addCustomInput(CustomInput ci) {
+        if (this.customInputs==null){
+            this.customInputs = new ArrayList<CustomInput>();
+        }
+        this.customInputs.add(ci);
+    }
+    
 }

@@ -44,6 +44,20 @@ public class Factory {
                 f.addTekst(raw.getTekst());                
                 if (raw.getEenheid()!=null && raw.getEenheid().length()>0){
                     f.setEenheid(raw.getEenheid());
+                }                
+                if (raw.getVrij()!=null && !raw.getVrij().equalsIgnoreCase("0000")){
+                    Integer previousTextLength = f.getTekst().length() - raw.getTekst().length();
+                    String vrij = raw.getVrij();
+                    while (vrij.length()>0){
+                        Integer startIndex = new Integer(vrij.substring(0, 2));
+                        Integer endIndex = new Integer(vrij.substring(2, 4));
+                        //start with 0 not with 1
+                        startIndex--;                        
+                        //if there is a previous text, add the length of that text for the correct length
+                        CustomInput ci = new CustomInput(previousTextLength+startIndex,endIndex-startIndex);
+                        vrij = vrij.substring(4);
+                        f.addCustomInput(ci);
+                    }
                 }
             }else{
                 if (curCode==null){
@@ -60,9 +74,9 @@ public class Factory {
                 }else{
                     laatsteOptie.addTekst(raw.getTekst());
                 }
-                //create custom input fields
-                Integer previousTextLength = laatsteOptie.getTekst().length() - raw.getTekst().length();
+                //create custom input fields                
                 if (raw.getVrij()!=null && !raw.getVrij().equalsIgnoreCase("0000")){
+                    Integer previousTextLength = laatsteOptie.getTekst().length() - raw.getTekst().length();
                     String vrij = raw.getVrij();
                     while (vrij.length()>0){
                         Integer startIndex = new Integer(vrij.substring(0, 2));

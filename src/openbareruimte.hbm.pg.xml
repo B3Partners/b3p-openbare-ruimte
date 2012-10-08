@@ -36,7 +36,14 @@
             </id>
         </attributes>
     </entity>
-    <entity class="nl.b3p.viewer.openbareruimte.entities.CustomInput">
+    <entity class="nl.b3p.viewer.openbareruimte.entities.MaatregelCustomInput">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY"/>
+            </id>
+        </attributes>
+    </entity>
+    <entity class="nl.b3p.viewer.openbareruimte.entities.MaatregelEigenschapCustomInput">
         <attributes>
             <id name="id">
                 <generated-value strategy="IDENTITY"/>
