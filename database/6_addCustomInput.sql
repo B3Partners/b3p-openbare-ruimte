@@ -8,7 +8,7 @@ create table maatregel_custom_input (
         primary key (id)
 );
     
-create table maatregel_eigenschap_custom_input (
+create table mrl_eigenschap_custom_in (
         id  bigserial not null,
         index int4,
         value varchar(255),
@@ -21,7 +21,7 @@ alter table maatregel_custom_input
         foreign key (maatregel) 
         references maatregel;
         
-alter table maatregel_eigenschap_custom_input 
+alter table mrl_eigenschap_custom_in 
 	add constraint FKD8369635F3317B25 
 	foreign key (maatregel_eigenschap) 
         references maatregel_eigenschap;

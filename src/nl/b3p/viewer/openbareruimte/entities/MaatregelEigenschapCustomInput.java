@@ -16,7 +16,7 @@ import javax.persistence.Table;
  * @author Roy Braam
  */
 @Entity
-@Table(name="maatregel_eigenschap_custom_input")
+@Table(name="mrl_eigenschap_custom_in")
 public class MaatregelEigenschapCustomInput extends CustomInput{    
     @Id
     private Long id;
