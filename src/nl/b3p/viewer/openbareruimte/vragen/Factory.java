@@ -42,8 +42,10 @@ public class Factory {
                     raw.getDeficode().length()==0){
                 continue;
             //is maatregel tekst?
-            }else if (raw.getDeficode().equals("0000")){
-                Tekst t = new Tekst(raw.getTekst());
+            }
+            Tekst t = new Tekst(raw.getTekst());
+            t.setAanwijzing(raw.getAanwijzing());
+            if (raw.getDeficode().equals("0000")){
                 if (raw.getEenheid()!=null && raw.getEenheid().length()>0){
                     f.setEenheid(raw.getEenheid());
                 }
@@ -53,7 +55,6 @@ public class Factory {
                 }
                 f.addTekst(t);
             }else{
-                Tekst t = new Tekst(raw.getTekst());
                 if (curCode==null){
                     curCode =raw.getDeficode();
                     laatsteVraag = new Vraag(new Integer(""+curCode.charAt(0)));

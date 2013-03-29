@@ -13,6 +13,7 @@ import java.util.List;
 public class Tekst {
     private List<CustomInput> customInputs;
     private String tekst;
+    private String aanwijzing;
 
     Tekst(String tekst) {
         this(tekst,null);
@@ -38,5 +39,14 @@ public class Tekst {
     public void setTekst(String tekst) {
         this.tekst = tekst;
     }
+    
+    public String getAanwijzing() {
+        return aanwijzing;
+    }
+
+    public void setAanwijzing(String aanwijzing) {
+        this.aanwijzing = aanwijzing;
+    }
     //</editor-fold>
+
 }
