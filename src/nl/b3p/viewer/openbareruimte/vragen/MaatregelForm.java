@@ -13,10 +13,10 @@ import java.util.List;
  */
 public class MaatregelForm {
     private List<Vraag> vragen;
-    private String tekst;
+    private List<Tekst> teksten;
     private String eenheid;
     private List<CustomInput> customInputs;
-
+    
     //<editor-fold defaultstate="collapsed" desc="getters and setters">
     public List<Vraag> getVragen() {
         return vragen;
@@ -26,12 +26,12 @@ public class MaatregelForm {
         this.vragen = vragen;
     }
     
-    public String getTekst() {
-        return tekst;
+    public List getTeksten() {
+        return teksten;
     }
     
-    public void setTekst(String tekst) {
-        this.tekst = tekst;
+    public void setTeksten(List<Tekst> teksten) {
+        this.teksten = teksten;
     }
     
     public String getEenheid() {
@@ -49,29 +49,12 @@ public class MaatregelForm {
     public void setCustomInputs(List<CustomInput> customInputs) {
         this.customInputs = customInputs;
     }
-    //</editor-fold>
-
-    void addTekst(String tekst) {
-        if (this.tekst==null){
-            this.tekst=tekst;
-        }else{
-            this.tekst+=" "+tekst;
+    //</editor-fold>    
+    void addTekst(Tekst tekst) {
+        if (teksten==null){
+            teksten = new ArrayList<Tekst>();
         }
-    }
-
-    public void addCustomInput(CustomInput ci) {
-        if (this.customInputs==null){
-            this.customInputs = new ArrayList<CustomInput>();
-        }
-        this.customInputs.add(ci);
-    }
-
-    void addCustomInputs(List<CustomInput> cis) {
-        if (this.customInputs==null){
-            this.setCustomInputs(cis);
-        }else{
-            this.customInputs.addAll(cis);
-        }
+        teksten.add(tekst);
     }
     
 }

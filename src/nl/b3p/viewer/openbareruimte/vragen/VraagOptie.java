@@ -13,18 +13,21 @@ import java.util.List;
  */
 public class VraagOptie {
     private String deficode;
-    private String tekst;
+    private List<Tekst> teksten;
     private String eenheid;
     private String omschrijving;
     
     private List<CustomInput> customInputs;
 
-    VraagOptie(String deficode,String tekst) {
+    VraagOptie(String deficode/*,String tekst*/) {
         this.deficode=deficode;
-        this.tekst= tekst;
+        /*teksten = new ArrayList<String>();
+        if (tekst!=null){
+            this.teksten.add(tekst);
+        }*/
     }
 
-    //<editor-fold defaultstate="collapsed" desc="comment">
+    //<editor-fold defaultstate="collapsed" desc="Getters and Setters">
     public String getDeficode() {
         return deficode;
     }
@@ -33,12 +36,12 @@ public class VraagOptie {
         this.deficode = deficode;
     }
     
-    public String getTekst() {
-        return tekst;
+    public List<Tekst> getTeksten(){
+        return teksten;
     }
     
-    public void setTekst(String tekst) {
-        this.tekst = tekst;
+    public void setTeksten(List<Tekst> teksten){
+        this.teksten = teksten;
     }
     
     public String getEenheid() {
@@ -66,34 +69,18 @@ public class VraagOptie {
     }
     //</editor-fold>
 
-    void addTekst(String tekst) {
-        if (this.tekst==null){
-            this.tekst=tekst;
-        }else{
-            this.tekst+=" "+tekst;
+    void addTekst(Tekst tekst) {
+        if (teksten==null){
+            teksten = new ArrayList<Tekst>();
         }
+        teksten.add(tekst);
     }
-    
+     
     void addOmschrijving(String omschrijving) {
         if (this.omschrijving==null){
             this.omschrijving=omschrijving;
         }else{
             this.omschrijving+=" "+omschrijving;
         }
-    }
-    
-    void addCustomInput(CustomInput customInput){
-        if (this.customInputs==null){
-            this.customInputs = new ArrayList<CustomInput>();
-        }
-        this.customInputs.add(customInput);
-    }
-
-    void addCustomInputs(List<CustomInput> cis) {
-        if (this.customInputs==null){
-            this.customInputs = cis;
-        }else{
-            this.customInputs.addAll(cis);
-        }
-    }
+    }  
 }
