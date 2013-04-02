@@ -45,6 +45,7 @@ public class Factory {
             }
             Tekst t = new Tekst(raw.getTekst());
             t.setAanwijzing(raw.getAanwijzing());
+            t.setType(raw.getType());
             if (raw.getDeficode().equals("0000")){
                 if (raw.getEenheid()!=null && raw.getEenheid().length()>0){
                     f.setEenheid(raw.getEenheid());

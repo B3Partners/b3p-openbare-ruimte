@@ -14,6 +14,7 @@ public class Tekst {
     private List<CustomInput> customInputs;
     private String tekst;
     private String aanwijzing;
+    private String type;
 
     Tekst(String tekst) {
         this(tekst,null);
@@ -46,6 +47,14 @@ public class Tekst {
 
     public void setAanwijzing(String aanwijzing) {
         this.aanwijzing = aanwijzing;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
     //</editor-fold>
 
