@@ -70,6 +70,7 @@
     properties which you can use, check the target you are overriding in the
     nbproject/build-impl.xml file. 
 
-    -->
-    <import file="database/hibernate-schemaexport.xml"/>   
+    
+    <import file="database/hibernate-schemaexport.xml"/>  
+    --> 
 </project>
