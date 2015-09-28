@@ -43,7 +43,7 @@
         <connection>scm:git:git@github.com:B3Partners/b3p-openbare-ruimte.git</connection>
         <developerConnection>scm:git:git@github.com:B3Partners/b3p-openbare-ruimte.git</developerConnection>
         <url>https://github.com/B3Partners/b3p-openbare-ruimte</url>
-      <tag>b3p-openbare-ruimte-4.2.1</tag>
+      <tag>b3p-openbare-ruimte-${project.version}</tag>
     </scm>
     <distributionManagement>
         <repository>
